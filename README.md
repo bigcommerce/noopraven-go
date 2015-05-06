@@ -1,8 +1,10 @@
 # noop-raven
 
-This is a interface and noop implementation for [Raven](https://github.com/getsentry/raven-go).
+[![Build Status](https://travis-ci.org/bigcommerce/noopraven-go.svg?branch=master)](https://travis-ci.org/bigcommerce/noopraven-go)
 
-This is useful if you want to drop a raven client into some code without having to always check if it's enabled or not when using it.
+This is an Interface and a no-op implementation for [Raven](https://github.com/getsentry/raven-go).
+
+This is useful if you want to drop a Raven client instance into some code without having to always check if it's enabled or not when using it.
 
 ## Installation
 
