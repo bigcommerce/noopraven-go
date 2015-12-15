@@ -8,7 +8,7 @@ type RavenClient interface {
 	Capture(packet *raven.Packet, captureTags map[string]string) (eventID string, ch chan error)
 	CaptureError(err error, tags map[string]string, interfaces ...raven.Interface) string
 	CaptureMessage(message string, tags map[string]string, interfaces ...raven.Interface) string
-	CapturePanic(f func(), tags map[string]string, interfaces ...raven.Interface)
+	CapturePanic(f func(), tags map[string]string, interfaces ...raven.Interface) (err interface{}, errorID string)
 	Close()
 	ProjectID() string
 	Release() string
@@ -32,8 +32,9 @@ func (client *NoopRavenClient) CaptureMessage(message string, tags map[string]st
 	return ""
 }
 
-func (client *NoopRavenClient) CapturePanic(f func(), tags map[string]string, interfaces ...raven.Interface) {
+func (client *NoopRavenClient) CapturePanic(f func(), tags map[string]string, interfaces ...raven.Interface) (err interface{}, errorID string) {
 	f()
+	return
 }
 
 func (client *NoopRavenClient) Close() {
