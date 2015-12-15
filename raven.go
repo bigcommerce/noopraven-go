@@ -33,6 +33,7 @@ func (client *NoopRavenClient) CaptureMessage(message string, tags map[string]st
 }
 
 func (client *NoopRavenClient) CapturePanic(f func(), tags map[string]string, interfaces ...raven.Interface) {
+	f()
 }
 
 func (client *NoopRavenClient) Close() {
