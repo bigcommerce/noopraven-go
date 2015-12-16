@@ -16,6 +16,7 @@ type RavenClient interface {
 	SetDSN(dsn string) error
 	SetRelease(release string)
 	URL() string
+	Wait()
 }
 
 type NoopRavenClient struct {
@@ -62,4 +63,7 @@ func (client *NoopRavenClient) SetRelease(release string) {
 
 func (client *NoopRavenClient) URL() string {
 	return ""
+}
+
+func (client *NoopRavenClient) Wait() {
 }
